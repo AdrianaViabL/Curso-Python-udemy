@@ -38,3 +38,23 @@ v['nova'] = 'qualquer'
 print(v)
 print(d1)
 
+d1 = {
+    1: 2,
+    2: 3,
+    3: 4,
+    4: 5
+}
+
+d1.pop(4)
+print(d1)
+
+d2 = {
+    'a': 'b',
+    'c': 'd',
+    'd': 'e',
+    'e': 'f'
+}
+print('forma de concatenar dois dicionarios')
+d1.update(d2)
+
+print(d1)
