@@ -1,0 +1,1 @@
+from dados import produtos, pessoas, qualquercoisa
