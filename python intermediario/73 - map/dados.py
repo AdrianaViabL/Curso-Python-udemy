@@ -1,3 +1,9 @@
+"""
+se o pacote nao conseguir ser encontrado no IMPORT, a pasta onde está o .py deve ser adicionado no
+settings > project ... > python interpreter - clicar setinha para ver os project interpreters- clicar em 'show all'
+e estando dentro do show all inclua o caminho onde esta o .py
+"""
+
 produtos = [
     {'nome': 'p1', 'preco': 10},
     {'nome': 'p2', 'preco': 10.10},
