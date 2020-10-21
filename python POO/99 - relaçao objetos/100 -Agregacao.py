@@ -11,4 +11,4 @@ carrinho.inserir_prod(p2)
 carrinho.inserir_prod(p3)
 carrinho.lista_prod()
 
-print( carrinho.soma_total())
+print(carrinho.soma_total())

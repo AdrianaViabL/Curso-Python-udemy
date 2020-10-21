@@ -3,7 +3,7 @@ trabalhando com associação de classes que nao se dependem
 quando nenhuma das classes psssuem atributos atrelados entre si,
  criando uma associação fraca
 """
-from classes import Escritor, Caneta, MaquinaEscrever
+from clAssociacao import Escritor, Caneta, MaquinaEscrever
 
 es1 = Escritor('Joãozinho')
 can1 = Caneta('BIC')
