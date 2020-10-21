@@ -60,3 +60,15 @@ def valida_d2(cnpj):
     if d2 >= 9:
         d2 = 0
     return f'{cnpj}{d2}'
+
+
+import random
+
+
+def gera():
+    cnpj_inicial = random.randint(00000000, 99999999)
+    mil_contrario = '0001'
+    inicio_cnpj = f'{cnpj_inicial}{mil_contrario}00'
+    cnpj_comd1 = valida_d1(inicio_cnpj)
+    novo_cnpj = valida_d2(cnpj_comd1)
+    return novo_cnpj
