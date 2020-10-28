@@ -1,4 +1,4 @@
-# https://docs.python.org/2/library/datetime.html
+# https://docs.python.org/3/library/datetime.html
 from datetime import datetime, timedelta
 
 data = datetime(2020, 10, 27, 10, 53,
