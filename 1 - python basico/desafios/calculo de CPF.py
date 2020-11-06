@@ -2,35 +2,37 @@ import re
 cpf = input('digite o seu CPF: ')
 
 cpf = re.sub('[^0-9]', '', cpf)
-cpf_novo = []
+cpf_novo = list(cpf[:-2])
 dig1 = dig2 = 0
 if len(cpf) < 11:
     print('digite um CPF válido!!!!')
 else:
     valor = 0
     for i, v in enumerate(range(10, 1, -1)):
-        num = int(cpf[i])
-        cpf_novo.append(cpf[i])  #com certeza 'novo_cpf = cpf[:-2]' é mais simples
+        num = int(cpf_novo[i])
         valor += num * v
+        if v == 2:
+            break
 
-    if 11 - valor % 11 >= 9:
+    if 11 - valor % 11 > 9:
         dig1 = 0
     else:
         dig1 = 11 - valor % 11
 
     valor = 0
-    for i, v in enumerate(range(11, 1, -1)):
-        num = int(cpf[i])
-        valor += num * v
-        if v == 2:
-            valor += dig1 * v
+    cpf_novo.append(str(dig1))
 
-    if 11 - valor % 11 >= 9:
+    for i, v in enumerate(range(11, 1, -1)):
+        print(v)
+        num = int(cpf_novo[i])
+        valor += num * v
+
+    print(valor, 11 - valor % 11)
+    if 11 - valor % 11 > 9:
         dig2 = 0
     else:
         dig2 = 11 - valor % 11
 
-    cpf_novo.append(str(dig1))
     cpf_novo.append(str(dig2))
     cpf_novo = ''.join(cpf_novo)
     print(cpf_novo)
@@ -60,7 +62,7 @@ while True:
         if reverso < 2:
             reverso = 11
             d = 11 - (total % 11)
-
+            print(total)
             if d > 9:                   # Se o digito for > que 9 o valor é 0
                 d = 0
             total = 0                   # Zera o total
@@ -71,6 +73,7 @@ while True:
 
     # Descobri que sequências avaliavam como verdadeiro, então também
     # adicionei essa checagem aqui
+    print(novo_cpf)
     if cpf == novo_cpf and not sequencia:
         print('Válido')
     else:
