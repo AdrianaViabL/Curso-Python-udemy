@@ -2,27 +2,32 @@ from random import randint
 
 
 def gera_cpf():
-    numero = str(randint(100000000, 999999999))
+    cpf_novo = str(randint(100000000, 999999999))
+    cpf_novo = list(cpf_novo)
+    valor = 0
+    for i, v in enumerate(range(10, 1, -1)):
+        num = int(cpf_novo[i])
+        valor += num * v
+        if v == 2:
+            break
 
-    novo_cpf = numero  # 9 números aleatórios
-    reverso = 10  # Contador reverso
-    total = 0  # O total das multiplicações
+    if 11 - valor % 11 > 9:
+        dig1 = 0
+    else:
+        dig1 = 11 - valor % 11
 
-    # Loop do CPF
-    for index in range(19):
-        if index > 8:  # Primeiro índice vai de 0 a 9,
-            index -= 9  # São os 9 primeiros digitos do CPF
+    valor = 0
+    cpf_novo.append(str(dig1))
 
-        total += int(novo_cpf[index]) * reverso  # Valor total da multiplicação
+    for i, v in enumerate(range(11, 1, -1)):
+        num = int(cpf_novo[i])
+        valor += num * v
 
-        reverso -= 1  # Decrementa o contador reverso
-        if reverso < 2:
-            reverso = 11
-            d = 11 - (total % 11)
+    if 11 - valor % 11 > 9:
+        dig2 = 0
+    else:
+        dig2 = 11 - valor % 11
 
-            if d > 9:  # Se o digito for > que 9 o valor é 0
-                d = 0
-            total = 0  # Zera o total
-            novo_cpf += str(d)  # Concatena o digito gerado no novo cpf
-
-    return novo_cpf
+    cpf_novo.append(str(dig2))
+    cpf_novo = ''.join(cpf_novo)
+    return cpf_novo
